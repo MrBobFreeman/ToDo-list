@@ -14,8 +14,8 @@ export default new Vuex.Store({
         todoCreate(state, title) {
             let todo = {
                 body: title,
-                done: false,
-                createAt: new Date()
+                done: false, //Сделать возможность отметки выполненных задач
+                createAt: new Date() // Сделать  отображение звремени создания задачи?
             };
             state.todoList.push(todo);
         },

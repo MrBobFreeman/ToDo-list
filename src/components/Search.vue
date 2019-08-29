@@ -1,6 +1,6 @@
 <template lang='pug'>
   div.search
-    input(placeholder='Найти задачу' type="text" :value="todoSearch" @input='setSearch')
+    input(placeholder='Найти задачу' type="text" :value="todoSearch" @input='searchSet')
 </template>
 
 <script>
@@ -12,7 +12,7 @@ export default {
     }
   },
   methods: {
-    setSearch(event) {
+    searchSet(event) {
       this.$store.commit("searchSet", event.target.value);
     }
   }
@@ -22,10 +22,6 @@ export default {
 <style scoped>
 .search {
   margin: 10px;
-}
-.btn_search {
-  background-color: darkblue;
-  color: white;
 }
 input{
   width: 30%;
