@@ -1,23 +1,37 @@
 <template lang='pug'>
-  div
-    input(type="text" value ='Новая задача' v-model="title")
-    button(@click="addTask") Добавить задачу
+  div.create
+    input(placeholder='Новая задача' type="text" v-model="title")
+    button.btn_add(@click="todoCreate") Добавить
 </template>
 
 <script>
 export default {
   name: "Create",
   data: () => ({
-    title: ''
+    title: ""
   }),
   methods: {
-    addTask: function() {
-      this.$store.commit("todoCreate", this.title);
-      this.title='';
+    todoCreate() {
+      if (this.title !== "") {
+        this.$store.commit("todoCreate", this.title);
+        this.title = "";
+      } else {
+        alert("Вы не ввели текст задания!");
+      }
     }
   }
 };
 </script>
 
-<style>
+<style scoped>
+.create {
+  margin: 10px;
+}
+.btn_add{
+  background-color: darkgreen;
+  color: white;
+}
+input{
+  width: 50%;
+}
 </style>

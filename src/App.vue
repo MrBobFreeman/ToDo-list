@@ -1,17 +1,29 @@
 <template>
   <div id="app">
     <Create />
+    <hr>
+    <Search />
+    <TodoList />
   </div>
 </template>
 
 <script>
 import Create from './components/Create.vue'
+import Search from './components/Search.vue'
+import TodoList from './components/TodoList.vue'
 
 export default {
   name: 'app',
   components: {
-    Create
-  }
+    Create,
+    Search,
+    TodoList
+  },
+  computed: {
+    todoList() {
+      return this.$store.state.todoList;
+    }
+  },
 }
 </script>
 
@@ -21,7 +33,12 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+button {
+  height: 20px;
+  width: 80px;
+  margin-left: 5px;
+  background-color: firebrick;
+  color: white;
 }
 </style>
