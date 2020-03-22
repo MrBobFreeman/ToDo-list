@@ -1,15 +1,17 @@
-<template lang='pug'>
-  div.create
-    input(placeholder='Новая задача' type="text" v-model="title")
-    button.btn_add(@click="todoCreate") Добавить
+<template lang="pug">
+  .input-group.mx-auto.mt-3(style="width: 50%")
+    input.form-control.rounded-lg(placeholder="Новая задача" type="text" v-model="title")
+    button.btn.btn-primary.ml-1(@click="todoCreate") Добавить
 </template>
 
 <script>
 export default {
   name: "Create",
+
   data: () => ({
     title: ""
   }),
+
   methods: {
     todoCreate() {
       if (this.title !== "") {
@@ -27,11 +29,8 @@ export default {
 .create {
   margin: 10px;
 }
-.btn_add{
-  background-color: darkgreen;
-  color: white;
-}
-input{
+
+input {
   width: 50%;
 }
 </style>
