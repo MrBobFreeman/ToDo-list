@@ -1,29 +1,25 @@
-<template lang='pug'>
-  div.search
-    input(placeholder='Найти задачу' type="text" :value="todoSearch" @input='searchSet')
+<template lang="pug">
+  input.form-control.rounded-lg.mx-auto.my-3(
+      placeholder="Найти задачу" 
+      type="text" 
+      style="width: 30%"
+      :value="titleSearch" 
+      @input="onTaskSearch")
 </template>
 
 <script>
 export default {
   name: "Search",
+
   computed: {
-    todoSearch() {
-      return this.$store.state.search;
+    titleSearch() {
+      return this.$store.state.titleSearch;
     }
   },
   methods: {
-    searchSet(event) {
-      this.$store.commit("searchSet", event.target.value);
+    onTaskSearch(event) {
+      this.$store.commit("SET_TITLE_SEARCH", event.target.value);
     }
   }
 };
 </script>
-
-<style scoped>
-.search {
-  margin: 10px;
-}
-input{
-  width: 30%;
-}
-</style>

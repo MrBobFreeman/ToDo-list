@@ -1,7 +1,12 @@
 <template lang="pug">
-  .input-group.mx-auto.mt-3(style="width: 50%")
-    input.form-control.rounded-lg(placeholder="Новая задача" type="text" v-model="title")
-    button.btn.btn-primary.ml-1(@click="todoCreate") Добавить
+  .input-group.mx-auto.mt-5.w-50
+    input.form-control.rounded-lg(
+      placeholder="Новая задача" 
+      type="text" 
+      v-model="taskTitle")
+    button.btn.btn-primary.ml-2(
+      @click="createTask") Добавить
+    span.fixed-top.my-3.color-red(v-if="isEmptyTitle") Введите название задачи!
 </template>
 
 <script>
@@ -9,28 +14,21 @@ export default {
   name: "Create",
 
   data: () => ({
-    title: ""
+    taskTitle: "",
+    isEmptyTitle: false
   }),
 
   methods: {
-    todoCreate() {
-      if (this.title !== "") {
-        this.$store.commit("todoCreate", this.title);
-        this.title = "";
-      } else {
-        alert("Вы не ввели текст задания!");
+    createTask() {
+      if (!this.taskTitle) {
+        this.isEmptyTitle = true;
+        return;
       }
+
+      this.$store.dispatch("createTask", this.taskTitle);
+      this.isEmptyTitle = false;
+      this.taskTitle = "";
     }
   }
 };
 </script>
-
-<style scoped>
-.create {
-  margin: 10px;
-}
-
-input {
-  width: 50%;
-}
-</style>

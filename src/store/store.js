@@ -1,30 +1,43 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
-import createPersistedState from 'vuex-persistedstate';
+import Vue from "vue";
+import Vuex from "vuex";
+import createPersistedState from "vuex-persistedstate";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-    state: {
-        todoList: [],
-        search: ''
-    },
-    plugins: [createPersistedState()],
-    mutations: {
-        todoCreate(state, title) {
-            let todo = {
-                body: title,
-                done: false, //Сделать возможность отметки выполненных задач
-                createAt: new Date() // Сделать  отображение звремени создания задачи?
-            };
-            state.todoList.push(todo);
-        },
-        todoDelete(state, todo) {
-            state.todoList.splice(state.todoList.indexOf(todo), 1);
-        },
-        searchSet(state, search) {
-            state.search = search;
-        }
-    },
-});
+  plugins: [createPersistedState()],
 
+  state: {
+    taskList: [],
+    titleSearch: ""
+  },
+
+  actions: {
+    createTask({ commit }, title) {
+      const task = {
+        title: title,
+        createAt: new Date()
+      };
+      commit("ADD_TASK", task);
+    },
+
+    deleteTask({ commit, state }, task) {
+      const index = state.taskList.indexOf(task);
+      commit("DELETE_TASK", index);
+    }
+  },
+
+  mutations: {
+    ADD_TASK(state, task) {
+      state.taskList.push(task);
+    },
+
+    DELETE_TASK(state, index) {
+      state.taskList.splice(index, 1);
+    },
+
+    SET_TITLE_SEARCH(state, title) {
+      state.titleSearch = title;
+    }
+  }
+});
