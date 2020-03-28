@@ -6,7 +6,7 @@
       v-model="taskTitle")
     button.btn.btn-primary.ml-2(
       @click="createTask") Добавить
-    span.fixed-top.my-3.color-red(v-if="isEmptyTitle") Введите название задачи!
+    span.fixed-top.my-3.text-danger(v-if="isEmptyTitle") Введите название задачи!
 </template>
 
 <script>

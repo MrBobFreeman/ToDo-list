@@ -1,6 +1,6 @@
 <template lang="pug">
   input.form-control.rounded-lg.mx-auto.my-3(
-      placeholder="Найти задачу" 
+      placeholder="Найти задачу, поиск начинается от 3 символов" 
       type="text" 
       style="width: 30%"
       :value="titleSearch" 
