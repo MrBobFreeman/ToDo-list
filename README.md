@@ -1,8 +1,8 @@
-# TodoList
+# ToDo-list
 
 Vue+Vuex+LocalStorage+Pug+Bootstrap
 
-Deployed on GitHubPages: https://mrbobfreeman.github.io/TodoList/
+Deployed on GitHubPages: https://mrbobfreeman.github.io/ToDo-list/
 
 Install:
 
@@ -15,13 +15,13 @@ Use:
 1. cd /download_folder/
 2. Use cli: 'npm run start'
 
-# TodoList
+# ToDo-list
 
 Vue+Vuex+LocalStorage+Pug+Bootstrap
 
 Простой планировщик задач, позволяет сохранять задачи в LocalStorage, удалять их, и производить поиск по задачам, при вводе от 3х символов, при поиске выводит только первые 10 задач.
 
-Можете посмотреть готовое приложение: https://mrbobfreeman.github.io/TodoList/
+Можете посмотреть готовое приложение: https://mrbobfreeman.github.io/ToDo-list/
 
 Установка:
 
